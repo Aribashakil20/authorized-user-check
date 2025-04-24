@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6ffe6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .welcome {
+      background-color: white;
+      padding: 30px 50px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      font-size: 22px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome" id="welcomeMessage">
+    <!-- Welcome message will be injected here -->
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    let name = urlParams.get('name');
+
+    if (name) {
+      name = name.charAt(0).toUpperCase() + name.slice(1); // Capitalize first letter
+      document.getElementById('welcomeMessage').textContent = `Hello ${name}, welcome!`;
+    } else {
+      document.getElementById('welcomeMessage').textContent = `No name provided.`;
+    }
+  </script>
+</body>
+</html>
